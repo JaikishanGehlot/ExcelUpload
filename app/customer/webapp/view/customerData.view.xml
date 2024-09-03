@@ -1,0 +1,47 @@
+<mvc:View
+    controllerName="customer.controller.customerData"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">    
+    <Dialog 
+        id="upload" 
+        title="Upload Excel Data" 
+        class="sapUiResponsivePadding"
+        ariaLabelledBy="uploadTitle">
+        
+        <Text id="uploadTitle" text="Upload Excel Data" visible="false"/>
+        
+        <content>
+            <u:FileUploader
+                id="fileUploader"
+                fileType="xlsx,xls"
+                placeholder="Choose a file to upload..."
+                change=".onDialogFileChange"
+                ariaLabelledBy="fileUploaderLabel"
+                tooltip="Select an Excel file for uploading"/>
+            <Text id="fileUploaderLabel" text="File Uploader" visible="false"/>
+        </content>        
+        
+        <footer>
+            <Toolbar id="toolbar">
+                <ToolbarSpacer id="tool"/>
+                <Button 
+                    id="Upload" 
+                    text="Upload" 
+                    press="onUploadDialogPress" 
+                    enabled="false"
+                    tooltip="Upload the selected file"/>
+                <Button 
+                    id="cancel" 
+                    text="Cancel" 
+                    press="onDialogCancelPress"
+                    tooltip="Cancel the upload operation"/>
+                <Button 
+                    id="download" 
+                    text="Download Template" 
+                    press="onDialogDownloadPress"
+                    tooltip="Download an Excel template for data upload"/>
+            </Toolbar>
+        </footer>      
+    </Dialog>
+</mvc:View>
